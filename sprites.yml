@@ -1,0 +1,78 @@
+board:
+  x: 13
+  y: 14
+  width: 677
+  height: 1294
+
+box:
+  x: 714
+  y: 13
+  width: 285
+  height: 285
+
+extended_box:
+  x: 719
+  y: 331
+  width: 285
+  height: 842
+
+pieces:
+  I:
+    x: 1038
+    y: 165
+    width: 258
+    height: 72
+  J:
+    x: 1038
+    y: 798
+    width: 196
+    height: 134
+  L:
+    x: 1038
+    y: 518
+    width: 186
+    height: 134
+  O:
+    x: 1038
+    y: 658
+    width: 134
+    height: 134
+  S:
+    x: 1038
+    y: 241
+    width: 196
+    height: 234
+  T:
+    x: 1038
+    y: 27
+    width: 196
+    height: 134
+  Z:
+    x: 1038
+    y: 380
+    width: 196
+    height: 134
+
+button:
+  x: 1047
+  y: 996
+  width: 104
+  height: 104
+
+icon_play:
+  x: 1227
+  y: 1029
+  width: 32
+  height: 52
+
+icon_exit:
+  x: 1306
+  y: 1035
+  width: 40
+  height: 40
+
+text:
+  x: 19
+  y: 1343
+  width: 1821
+  height: 184
