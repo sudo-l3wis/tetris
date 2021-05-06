@@ -1,0 +1,7 @@
+singleton.app:
+  module: app.framework.singleton
+  class: App
+
+singleton.config:
+  module: app.framework.singleton
+  class: Config

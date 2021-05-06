@@ -1,0 +1,3 @@
+decorator.inject:
+  module: app.framework.decorator
+  class: inject

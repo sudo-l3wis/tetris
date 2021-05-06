@@ -1,0 +1,15 @@
+facade.config:
+  module: app.framework.facade
+  class: ConfigFacade
+
+facade.resolve:
+  module: app.framework.facade
+  class: ResolveFacade
+
+facade.app:
+  module: app.framework.facade
+  class: AppFacade
+
+facade.asset:
+  module: app.framework.facade
+  class: AssetFacade

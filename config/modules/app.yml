@@ -1,0 +1,8 @@
+framework.kernel:
+  module: app.framework
+  class: Kernel
+  dependencies:
+    - provider.config
+    - provider.decorator
+    - provider.facade
+    - provider.asset

@@ -1,0 +1,25 @@
+provider.config:
+  module: app.framework.provider
+  class: ConfigProvider
+  dependencies:
+    - config.display
+    - config.sprites
+
+provider.decorator:
+  module: app.framework.provider
+  class: DecoratorProvider
+  dependencies:
+    - decorator.inject
+
+provider.facade:
+  module: app.framework.provider
+  class: FacadeProvider
+  dependencies:
+    - facade.config
+    - facade.resolve
+    - facade.app
+    - facade.asset
+
+provider.asset:
+  module: app.framework.provider
+  class: AssetProvider

@@ -1,0 +1,3 @@
+parser.key:
+  module: app.framework.service.parser
+  class: KeyParser

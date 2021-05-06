@@ -1,0 +1,15 @@
+entity.board:
+  module: app.entity
+  class: Board
+
+entity.box:
+  module: app.entity
+  class: Board
+
+entity.button:
+  module: app.entity
+  class: Piece
+
+entity.button:
+  module: app.entity.ui
+  class: Button
