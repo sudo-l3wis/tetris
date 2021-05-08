@@ -1,4 +1,6 @@
 from . import State
+from app.types import EntityType
+
 
 class MenuState(State):
 
@@ -12,4 +14,10 @@ class MenuState(State):
         pass
 
     def render(self, surface):
-        pass
+        draw(surface, 'sprites.board', (0, 0))
+        draw(surface, 'sprites.pieces.I', (0, 0))
+        draw(surface, 'sprites.box')
+        draw(surface, 'sprites.extended_box')
+        #draw(surface, 'sprites.button')
+        #draw(surface, 'sprites.icon_play')
+        #draw(surface, 'sprites.pieces.I', (20, 20))

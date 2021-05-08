@@ -64,4 +64,5 @@ class AnimatedEntity(RenderableEntity):
             y *= self.get_height()
 
         pos = (x, y, self.get_width(), self.get_height())
+
         return asset(self.asset).subsurface(pos)

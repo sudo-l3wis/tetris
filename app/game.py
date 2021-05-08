@@ -38,7 +38,7 @@ class Game:
         self.state.update(delta)
 
     def render(self,):
-        self.surface.fill((0, 156, 98))
+        self.surface.fill((0, 0, 0))
         self.state.render(self.surface)
         pygame.display.update()
         self.clock.tick(self.fps)

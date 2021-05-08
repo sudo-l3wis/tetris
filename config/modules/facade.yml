@@ -13,3 +13,7 @@ facade.app:
 facade.asset:
   module: app.framework.facade
   class: AssetFacade
+
+facade.draw:
+  module: app.framework.facade
+  class: DrawFacade

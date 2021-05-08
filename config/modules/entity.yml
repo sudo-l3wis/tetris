@@ -6,7 +6,7 @@ entity.box:
   module: app.entity
   class: Board
 
-entity.button:
+entity.piece:
   module: app.entity
   class: Piece
 

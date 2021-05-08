@@ -19,6 +19,7 @@ provider.facade:
     - facade.resolve
     - facade.app
     - facade.asset
+    - facade.draw
 
 provider.asset:
   module: app.framework.provider
