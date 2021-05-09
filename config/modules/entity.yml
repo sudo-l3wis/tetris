@@ -11,5 +11,5 @@ entity.piece:
   class: Piece
 
 entity.button:
-  module: app.entity.ui
+  module: app.entity.components
   class: Button

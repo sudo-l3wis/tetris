@@ -40,5 +40,6 @@ class Game:
     def render(self,):
         self.surface.fill((0, 0, 0))
         self.state.render(self.surface)
+        self.state.render_ui(self.surface)
         pygame.display.update()
         self.clock.tick(self.fps)

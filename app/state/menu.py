@@ -1,39 +1,28 @@
 from . import State
 from app.types import EntityType
-
+from app.entity.components import Button
 
 class MenuState(State):
 
-    def __init__(self):
-        pass
-
     def start(self):
-        pass
-
-    def update(self, delta):
-        pass
-
-    def render(self, surface):
         w = config('display.width')
         h = config('display.height')
 
         bw = config('sprites.box.width')
         bh = config('sprites.box.height')
 
-        offsetX = w - bw - 15
+        self.pos = ((w - bw) / 2, (h - bh) / 2)
 
-        draw(surface, 'sprites.box', (offsetX, 9))
-        draw(surface, 'sprites.extended_box', (offsetX, bh + 20))
+        bw = config('sprites.button.width')
+        bh = config('sprites.button.height')
 
-        draw(surface, 'sprites.board', (10, 10))
+        btn_start = Button('play')
+        btn_start.set_pos((w - bw) / 2, (h - bh) / 2)
+        self.add_component(btn_start)
 
+    def update(self, delta):
+        super().update(delta)
 
-        #draw(surface, 'sprites.button')
-        #draw(surface, 'sprites.icon_play')
-        #draw(surface, 'sprites.pieces.I', (0, 0))
-        #draw(surface, 'sprites.pieces.J', (0, 0))
-        #draw(surface, 'sprites.pieces.L', (0, 0))
-        #draw(surface, 'sprites.pieces.O', (0, 0))
-        #draw(surface, 'sprites.pieces.S', (0, 0))
-        draw(surface, 'sprites.pieces.T', (0, 0))
-        #draw(surface, 'sprites.pieces.Z', (0, 0))
+    def render(self, surface):
+        super().render(surface)
+        draw(surface, 'sprites.box', self.pos)

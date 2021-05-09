@@ -1,10 +1,6 @@
 from . import State
 
 class RunningState(State):
-
-    def __init__(self):
-        pass
-
     def start(self):
         pass
 

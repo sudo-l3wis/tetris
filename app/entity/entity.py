@@ -60,3 +60,10 @@ class Entity(metaclass=ABCMeta):
 
     def set_height(self, height):
         self.__height = height
+
+    def intersects(self, pos):
+        x, y = pos
+        if self.get_x() >= x and self.get_x() <= x:
+            if self.get_y() >= y and self.get_y() <= y:
+                return True
+        return False
