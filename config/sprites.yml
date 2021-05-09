@@ -12,46 +12,46 @@ box:
 
 extended_box:
   x: 1117
-  y: 296
+  y: 295
   width: 283
-  height: 1140
+  height: 405
 
 pieces:
   I:
-    x: 755
-    y: 53
+    x: 687
+    y: 145
+    width: 248
+    height: 62
+  J:
+    x: 688
+    y: 354
     width: 186
     height: 124
-  J:
-    x: 1038
-    y: 798
-    width: 196
-    height: 134
   L:
-    x: 1038
-    y: 518
+    x: 887
+    y: 220
     width: 186
-    height: 134
+    height: 124
   O:
-    x: 1038
-    y: 658
-    width: 134
-    height: 134
+    x: 889
+    y: 356
+    width: 124
+    height: 124
   S:
-    x: 1038
-    y: 241
-    width: 196
-    height: 234
+    x: 886
+    y: 9
+    width: 186
+    height: 124
   T:
-    x: 1038
-    y: 27
-    width: 196
-    height: 134
+    x: 685
+    y: 8
+    width: 186
+    height: 124
   Z:
-    x: 1038
-    y: 380
-    width: 196
-    height: 134
+    x: 688
+    y: 219
+    width: 186
+    height: 124
 
 button:
   x: 774
