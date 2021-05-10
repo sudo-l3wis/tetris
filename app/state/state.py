@@ -15,7 +15,8 @@ class State(metaclass=ABCMeta):
 
     @abstractmethod
     def start(self):
-        pass
+        for component in self.components:
+            component.on_mount()
 
     @abstractmethod
     def update(self, delta):

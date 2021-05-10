@@ -20,6 +20,8 @@ class MenuState(State):
         btn_start.set_pos((w - bw) / 2, (h - bh) / 2)
         self.add_component(btn_start)
 
+        super().start()
+
     def update(self, delta):
         super().update(delta)
 

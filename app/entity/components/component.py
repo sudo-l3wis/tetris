@@ -15,6 +15,7 @@ class Component(RenderableEntity):
 
         self.on_move(mouse)
         if self.intersects(mouse):
+            print('intersecting')
             self.on_hover()
 
             if pygame.mouse.get_pressed()[0]:
