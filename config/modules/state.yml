@@ -1,0 +1,7 @@
+state.menu:
+  module: app.state
+  class: MenuState
+
+state.running:
+  module: app.state
+  class: RunningState

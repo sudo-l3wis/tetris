@@ -16,8 +16,9 @@ class MenuState(State):
         bw = config('sprites.button.width')
         bh = config('sprites.button.height')
 
-        btn_start = Button('play')
+        btn_start = Button()
         btn_start.set_pos((w - bw) / 2, (h - bh) / 2)
+        btn_start.handle(lambda : emit('play', self))
         self.add_component(btn_start)
 
         super().start()

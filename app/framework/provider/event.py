@@ -1,10 +1,13 @@
 from . import AbstractProvider
-from app.singleton import Config
 
 class EventProvider(AbstractProvider):
 
+    def __init__(self, config, dipatcher):
+        self.config = config
+        self.dispatcher = dipatcher
+
     def register(self):
-        events = Config().get('events')
+        events = self.config.get('events')
         for event, listeners in events.items():
             for listener in listeners:
-                Dispatcher().register(event, listener)
+                self.dispatcher.register(event, listener)

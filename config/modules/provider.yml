@@ -26,6 +26,9 @@ provider.facade:
 provider.event:
   module: app.framework.provider
   class: EventProvider
+  dependencies:
+    - singleton.config
+    - singleton.dispatcher
 
 provider.asset:
   module: app.framework.provider

@@ -5,6 +5,9 @@ singleton.app:
 singleton.config:
   module: app.framework.singleton
   class: Config
+  methods:
+    - set_parser:
+      - parser.key
 
 singleton.dispatcher:
   module: app.framework.singleton
@@ -13,3 +16,10 @@ singleton.dispatcher:
 singleton.asset:
   module: app.framework.singleton
   class: Asset
+
+singleton.state:
+  module: app.framework.singleton
+  class: StateManager
+  dependencies:
+    - state.menu
+    - state.manager

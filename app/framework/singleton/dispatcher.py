@@ -1,5 +1,5 @@
 from . import MetaSingleton
-from app.service.pipeline import Pipeline
+from app.framework.service.pipeline import Pipeline
 
 
 class Dispatcher(metaclass=MetaSingleton):
@@ -25,7 +25,7 @@ class Dispatcher(metaclass=MetaSingleton):
         :param payload: The data to pass to each listener.
         """
         listeners = self.__get_listeners(event)
-
+        
         return Pipeline().send(payload).through(listeners).then(lambda i: i)
 
     def __get_listeners(self, event):

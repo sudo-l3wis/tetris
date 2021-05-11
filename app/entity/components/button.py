@@ -5,9 +5,9 @@ from app.types import ButtonState
 
 class Button(Component):
 
-    def __init__(self, icon):
+    def __init__(self):
         super().__init__(ComponentType.UI)
-        self.icon = icon
+        self.handler = None
         self.state = None
         self.is_pressed = False
 
@@ -18,11 +18,16 @@ class Button(Component):
         self.set_width(conf['width'])
         self.set_height(conf['height'])
 
+    def handle(self, handler):
+        self.handler = handler
+
     def update(self, delta):
         super().update(delta)
         if self.state is not ButtonState.PRESSED:
             if self.is_pressed:
                 self.is_pressed = False
+                if self.handler:
+                    self.handler()
 
     def on_mount(self):
         self.state = ButtonState.DEFAULT
