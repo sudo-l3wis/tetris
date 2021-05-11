@@ -43,7 +43,10 @@ class Pipeline:
         try:
             _next = self.__generate()
 
-            result = next(_next)(self.__resource, _next)
+            if self.__resource:
+                return next(_next)(self.__resource, _next)
+
+            return next(_next)(_next)
 
         except StopIteration:
             pass

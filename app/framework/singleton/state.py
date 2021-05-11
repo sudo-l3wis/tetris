@@ -12,7 +12,7 @@ class StateManager(metaclass=MetaSingleton):
         self.state.start()
 
     def change(self, state):
-        self.state = self.states[state.value()]
+        self.state = self.states[state.value]
         self.state.start()
 
     def update(self, delta):

@@ -5,6 +5,7 @@ from app.framework.decorator import inject
 
 class PlayEvent:
 
-    @inject('state.manager')
-    def handle(event, manager):
+    @inject('singleton.state')
+    def handle(self, _next, manager):
         manager.change(State.RUNNING)
+        return next(_next)

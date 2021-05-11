@@ -8,4 +8,4 @@ pygame.init()
 
 pygame.mouse.set_visible(False)
 
-Game(StateManager()).run()
+Game(resolve('singleton.state')).run()

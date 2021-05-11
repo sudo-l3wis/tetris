@@ -22,4 +22,4 @@ singleton.state:
   class: StateManager
   dependencies:
     - state.menu
-    - state.manager
+    - state.running

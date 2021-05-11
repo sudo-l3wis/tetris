@@ -17,7 +17,7 @@ class Dispatcher(metaclass=MetaSingleton):
         else:
             self.listeners[event] = [listener]
 
-    def dispatch(self, event, payload = []):
+    def dispatch(self, event, payload = None):
         """Dispatch the given event.
         Dispatch the event and invoke all attached listeners with
         the given payload.

@@ -7,7 +7,7 @@ class EmitFacade(AbstractFacade):
     def __init__(self):
         super().__init__('emit')
 
-    def invoke(self, event, payload):
+    def invoke(self, event, payload = None):
         """Dispatch the given event.
         :param event: The event to dispatch.
         :param: payload: The event data to process.
