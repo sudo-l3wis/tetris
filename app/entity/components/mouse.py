@@ -16,6 +16,9 @@ class Mouse(Component):
     def on_hover(self):
         pass
 
+    def on_leave(self):
+        pass
+
     def on_press(self):
         pass
 

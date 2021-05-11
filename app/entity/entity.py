@@ -49,6 +49,9 @@ class Entity(metaclass=ABCMeta):
         self.__x = x
         self.__y = y
 
+    def pos(self):
+        return self.get_x(), self.get_y()
+
     def get_width(self):
         return self.__width
 
@@ -61,9 +64,19 @@ class Entity(metaclass=ABCMeta):
     def set_height(self, height):
         self.__height = height
 
+    def size(self):
+        return self.get_width(), self.get_height()
+
     def intersects(self, pos):
-        x, y = pos
-        if self.get_x() >= x and self.get_x() <= x:
-            if self.get_y() >= y and self.get_y() <= y:
-                return True
-        return False
+        px, py = pos
+        x, y = self.pos()
+        w, h = self.size()
+
+        conditions = [
+            px >= x,
+            px <= x + w,
+            py >= y,
+            py <= y + h
+        ]
+
+        return False not in conditions
