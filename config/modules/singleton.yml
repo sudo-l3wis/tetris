@@ -5,3 +5,11 @@ singleton.app:
 singleton.config:
   module: app.framework.singleton
   class: Config
+
+singleton.dispatcher:
+  module: app.framework.singleton
+  class: Dispatcher
+
+singleton.asset:
+  module: app.framework.singleton
+  class: Asset

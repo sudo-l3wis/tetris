@@ -5,4 +5,5 @@ framework.kernel:
     - provider.config
     - provider.decorator
     - provider.facade
+    - provider.event
     - provider.asset

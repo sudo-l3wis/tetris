@@ -10,6 +10,14 @@ facade.app:
   module: app.framework.facade
   class: AppFacade
 
+facade.event:
+  module: app.framework.facade
+  class: EventFacade
+
+facade.emit:
+  module: app.framework.facade
+  class: EmitFacade
+
 facade.asset:
   module: app.framework.facade
   class: AssetFacade

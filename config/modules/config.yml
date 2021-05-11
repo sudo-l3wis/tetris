@@ -5,3 +5,7 @@ config.display:
 config.sprites:
   module: app.framework.config
   class: SpriteConfig
+
+config.events:
+  module: app.framework.config
+  class: EventConfig

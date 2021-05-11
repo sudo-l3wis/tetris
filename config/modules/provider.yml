@@ -4,6 +4,7 @@ provider.config:
   dependencies:
     - config.display
     - config.sprites
+    - config.events
 
 provider.decorator:
   module: app.framework.provider
@@ -19,7 +20,12 @@ provider.facade:
     - facade.resolve
     - facade.app
     - facade.asset
+    - facade.emit
     - facade.draw
+
+provider.event:
+  module: app.framework.provider
+  class: EventProvider
 
 provider.asset:
   module: app.framework.provider

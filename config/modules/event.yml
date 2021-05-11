@@ -1,0 +1,3 @@
+event.play:
+  module: app.framework.event
+  class: PlayEvent

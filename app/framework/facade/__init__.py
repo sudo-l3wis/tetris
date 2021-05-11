@@ -4,3 +4,4 @@ from . app import AppFacade
 from . resolve import ResolveFacade
 from . asset import AssetFacade
 from . draw import DrawFacade
+from . emit import EmitFacade
