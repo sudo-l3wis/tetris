@@ -1,11 +1,19 @@
 from . import State
+from app.entity import Board
+
 
 class RunningState(State):
+
     def start(self):
-        pass
+        super().start()
+
+        self.board = Board()
+        self.board.set_pos(10, 10)
 
     def update(self, delta):
-        pass
+        super().update(delta)
+        self.board.update(delta)
 
     def render(self, surface):
-        pass
+        super().render(surface)
+        self.board.render(surface)

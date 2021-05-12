@@ -2,10 +2,10 @@ import pygame
 
 from app.types import Cardinal
 
-from . import StateBasedEntity
+from . import RenderableEntity
 
 
-class MovableEntity(StateBasedEntity):
+class MovableEntity(RenderableEntity):
     def __init__(self):
         super().__init__()
         self.__velocity = 0
