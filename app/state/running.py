@@ -4,6 +4,9 @@ from app.entity import Board
 
 class RunningState(State):
 
+    def set_board(self, board):
+        self.board = board
+
     def start(self):
         super().start()
 
