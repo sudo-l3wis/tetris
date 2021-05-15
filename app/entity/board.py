@@ -11,13 +11,15 @@ class Board(RenderableEntity):
     def __init__(self, grid):
         self.grid = grid
         self.buffer = 0
+        self.move_time = 0
+        self.move_delay = 1
+
         self.spawner = self.spawn()
         self.available = [i for i in PieceType]
         self.piece = Piece(next(self.spawner))
         self.grid.add(self.piece)
         self.buffer = [Piece(next(self.spawner)) for i in range(3)]
-        self.move_time = 0
-        self.move_delay = 1
+
 
         conf = config('sprites.board')
         self.set_surface(asset('sprites').subsurface(tuple(conf.values())))
