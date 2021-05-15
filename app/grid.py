@@ -33,12 +33,7 @@ class Grid:
 
     def add(self, piece):
         self.item = GridItem(piece)
-
-        b = self.block
-        w = piece.get_width()
-        c = self.cols
-
-        self.item.set_grid_x(int(c / 2 - int(w / b / 2)))
+        self.item.set_grid_x(int(self.cols / 2 - int(piece.get_width() / self.block / 2)))
         self.item.set_grid_width(int(self.item.get_width() / self.block))
         self.item.set_grid_height(int(self.item.get_height() / self.block))
 
@@ -67,30 +62,38 @@ class Grid:
         if not self.item:
             return False
 
-        x = self.item.get_grid_x()
-        y = self.item.get_grid_y()
-        w = self.item.get_grid_width()
-        h = self.item.get_grid_height()
+        x, y, w, h = self.item_pos()
 
-        # Check for bottom & assign cells.
-        if y + h == self.rows:
-            for j in range(y, y + h):
-                for i in range(x, x + w):
-                    self.cells[j][i] = 1
-                    self.items.append(self.item)
-                    self.item = None
-                    return
+        if y + h >= self.rows:
+            self.assign_cells()
+            return False
 
         # Check for collisions.
-        is_empty = True
         for i in range(w):
-            if self.cells[y + h][w + i] > -1:
-                is_empty = False
+            if self.cells[y + h - 1][w + i] > -1:
+                self.assign_cells()
                 return False
 
         self.item.inc_grid_y(1)
 
         return True
+
+    def assign_cells(self):
+        x, y, w, h = self.item_pos()
+        for j in range(y, y + h):
+            for i in range(x, x + w):
+                self.cells[j][i] = 1
+
+        self.items.append(self.item)
+        self.item = None
+
+    def item_pos(self):
+        x = self.item.get_grid_x()
+        y = self.item.get_grid_y()
+        w = self.item.get_grid_width()
+        h = self.item.get_grid_height()
+
+        return x, y, w, h
 
     def is_pending(self):
         return self.item is None
