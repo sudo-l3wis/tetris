@@ -1,17 +1,18 @@
 from . import State
 from app.entity import Board
+from app import Grid
 
 
 class RunningState(State):
 
-    def set_board(self, board):
-        self.board = board
-
     def start(self):
         super().start()
 
-        self.board = Board()
-        self.board.set_pos(10, 10)
+        inset = config('display.board.inset')
+        offset = config('display.board.offset')
+
+        self.board = Board(Grid(offset, offset))
+        self.board.set_pos(inset, inset)
 
     def update(self, delta):
         super().update(delta)

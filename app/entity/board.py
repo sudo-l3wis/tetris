@@ -8,13 +8,14 @@ from app.entity import Piece
 
 class Board(RenderableEntity):
 
-    def __init__(self):
-        self.piece = None
+    def __init__(self, grid):
+        self.grid = grid
         self.buffer = 0
         self.spawner = self.spawn()
         self.available = [i for i in PieceType]
+        self.piece = Piece(next(self.spawner))
+        self.grid.add(self.piece)
         self.buffer = [Piece(next(self.spawner)) for i in range(3)]
-        self.block_size = 64
         self.move_time = 0
         self.move_delay = 1
 
@@ -28,21 +29,17 @@ class Board(RenderableEntity):
 
         if self.piece is None:
             self.piece = self.buffer.pop()
-            self.piece.set_pos(35 + (10 * self.block_size / 2) - int(self.piece.get_width() / self.block_size / 2) * self.block_size, 35)
-            piece = Piece(next(self.spawner))
-            self.buffer.append(piece)
+            self.buffer.append(Piece(next(self.spawner)))
 
         current_time = pygame.time.get_ticks()
         time_since_move = (current_time - self.move_time) / 1000.0
         if time_since_move >= self.move_delay:
             self.move_time = current_time
-            self.piece.inc_y(self.block_size)
+            self.grid.tick()
 
     def render(self, surface):
         super().render(surface)
-
-        if self.piece is not None:
-            self.piece.render(surface)
+        self.grid.render(surface)
 
     def spawn(self):
         while True:
