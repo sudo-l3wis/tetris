@@ -1,2 +1,9 @@
 width: 995
 height: 880
+board:
+  offset: 35
+  inset: 10
+grid:
+  block: 62
+  cols: 10
+  rows: 13
