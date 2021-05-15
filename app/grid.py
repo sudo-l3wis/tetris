@@ -33,46 +33,38 @@ class Grid:
 
     def add(self, piece):
         self.item = GridItem(piece)
-        self.item.set_grid_x(int(self.cols / 2 - int(piece.get_width() / self.block / 2)))
-        self.item.set_grid_width(int(self.item.get_width() / self.block))
-        self.item.set_grid_height(int(self.item.get_height() / self.block))
+        self.item.set_grid_x(int((self.cols - piece.cols) / 2))
 
     def tick(self):
         if not self.item:
             return False
 
-        x, y, w, h = self.item_pos()
+        x, y, w, h = self.item.pos()
 
+        # Check for bottom.
         if y + h >= self.rows:
             self.assign_cells()
             return False
 
         # Check for collisions.
         for i in range(w):
-            if self.cells[y + h - 1][w + i] > -1:
-                self.assign_cells()
-                return False
+            if self.item.is_bottom_fill(i):
+                if self.cells[y + h][x + i] > -1:
+                    self.assign_cells()
+                    return False
 
         self.item.inc_grid_y(1)
 
         return True
 
     def assign_cells(self):
-        x, y, w, h = self.item_pos()
+        x, y, w, h = self.item.pos()
         for j in range(y, y + h):
             for i in range(x, x + w):
                 self.cells[j][i] = 1
 
         self.items.append(self.item)
         self.item = None
-
-    def item_pos(self):
-        x = self.item.get_grid_x()
-        y = self.item.get_grid_y()
-        w = self.item.get_grid_width()
-        h = self.item.get_grid_height()
-
-        return x, y, w, h
 
     def current(self):
         return self.item

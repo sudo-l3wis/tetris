@@ -24,40 +24,74 @@ extended_box:
 
 pieces:
   I:
-    x: 687
-    y: 145
-    width: 248
-    height: 62
-  J:
-    x: 688
-    y: 354
-    width: 186
-    height: 124
-  L:
-    x: 887
-    y: 220
-    width: 186
-    height: 124
-  O:
-    x: 889
-    y: 356
-    width: 124
-    height: 124
-  S:
-    x: 886
-    y: 9
-    width: 186
-    height: 124
-  T:
-    x: 685
+    x: 689
     y: 8
-    width: 186
-    height: 124
+    width: 62
+    height: 62
+    rows: 1
+    cols: 4
+    cells:
+      - 1,1,1,1
+  J:
+    x: 757
+    y: 8
+    width: 62
+    height: 62
+    rows: 2
+    cols: 3
+    cells:
+      - 1,1,1,0
+      - 0,0,1,0
+  L:
+    x: 825
+    y: 8
+    width: 62
+    height: 62
+    rows: 2
+    cols: 3
+    cells:
+      - 1,1,1,0
+      - 1,0,0,0
+  O:
+    x: 689
+    y: 76
+    width: 62
+    height: 62
+    rows: 2
+    cols: 2
+    cells:
+      - 1,1,0,0
+      - 1,1,0,0
+  S:
+    x: 757
+    y: 76
+    width: 62
+    height: 62
+    rows: 2
+    cols: 3
+    cells:
+      - 0,1,1,0
+      - 1,1,0,0
+  T:
+    x: 826
+    y: 76
+    width: 62
+    height: 62
+    rows: 2
+    cols: 3
+    cells:
+      - 1,1,1,0
+      - 0,1,0,0
   Z:
-    x: 688
-    y: 219
-    width: 186
-    height: 124
+    x: 689
+    y: 144
+    width: 62
+    height: 62
+    rows: 2
+    cols: 3
+    cells:
+      - 1,1,0,0
+      - 0,1,1,0
 
 button:
   x: 692

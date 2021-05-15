@@ -6,6 +6,19 @@ class Piece(MovableEntity):
     def __init__(self, type):
         super().__init__()
         conf = config(type.value)
-        self.set_surface(asset('sprites').subsurface(tuple(conf.values())))
-        self.set_width(conf['width'])
-        self.set_height(conf['height'])
+        bounds = (conf['x'], conf['y'], conf['width'], conf['height'])
+        block = config('display.grid.block')
+        self.set_surface(asset('sprites').subsurface(bounds))
+        self.cols = conf['cols']
+        self.rows = conf['rows']
+        self.set_width(self.cols * block)
+        self.set_height(self.rows * block)
+        self.cells = [[int(i) for i in j.split(',')] for j in conf['cells']]
+
+    def render(self, surface):
+        block = config('display.grid.block')
+        x, y = self.get_pos()
+        for j in range(self.rows):
+            for i in range(self.cols):
+                if self.cells[j][i] == 1:
+                    surface.blit(self.get_surface(), (x + i * block, y + j * block))

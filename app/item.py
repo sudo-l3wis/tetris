@@ -4,8 +4,6 @@ class GridItem:
         self.entity = entity
         self.grid_x = 0
         self.grid_y = 0
-        self.grid_width = 0
-        self.grid_height = 0
         self.block = config('display.grid.block')
 
     def set_grid_x(self, grid_x):
@@ -26,23 +24,31 @@ class GridItem:
     def inc_grid_y(self, y):
         self.grid_y += y
 
-    def set_grid_width(self, grid_width):
-        self.grid_width = grid_width
-
     def get_grid_width(self):
-        return self.grid_width
-
-    def set_grid_height(self, grid_height):
-        self.grid_height = grid_height
+        return self.entity.cols
 
     def get_grid_height(self):
-        return self.grid_height
+        return self.entity.rows
 
     def get_width(self):
         return self.entity.get_width()
 
     def get_height(self):
         return self.entity.get_height()
+
+    def pos(self):
+        x = self.get_grid_x()
+        y = self.get_grid_y()
+        w = self.get_grid_width()
+        h = self.get_grid_height()
+
+        return x, y, w, h
+
+    def is_fill(self, x, y):
+        return self.entity.cells[y][x] == 1
+
+    def is_bottom_fill(self, x):
+        return self.is_fill(x, self.entity.rows - 1)
 
     def render(self, surface):
         x = self.grid_x * self.block
