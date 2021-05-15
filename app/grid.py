@@ -8,10 +8,11 @@ class Grid:
     def __init__(self, offset_x, offset_y):
         self.offset_x = offset_x
         self.offset_y = offset_y
-        self.cells = [[0 for i in range(10)] for j in range(13)]
+        self.cells = [[-1 for i in range(10)] for j in range(13)]
         self.cols = config('display.grid.cols')
         self.rows = config('display.grid.rows')
         self.block = config('display.grid.block')
+        self.items = []
         self.item = None
 
         width = self.block * self.cols
@@ -21,8 +22,13 @@ class Grid:
 
     def render(self, surface):
         self.surface.fill((0, 0, 0, 0))
+
         if self.item is not None:
             self.item.render(self.surface)
+
+        for item in self.items:
+            item.render(self.surface)
+
         surface.blit(self.surface, (self.offset_x, self.offset_y))
 
     def add(self, piece):
@@ -36,9 +42,30 @@ class Grid:
         self.item.set_grid_width(int(self.item.get_width() / self.block))
         self.item.set_grid_height(int(self.item.get_height() / self.block))
 
-    def tick(self):
+    def move_left(self):
         if not self.item:
             return
+
+        if self.item.get_grid_x() > 0:
+            self.item.inc_grid_x(-1)
+
+    def move_right(self):
+        if not self.item:
+            return
+
+        if self.item.get_grid_x() + self.item.get_grid_width() < self.cols:
+            self.item.inc_grid_x(1)
+
+    def move_down(self):
+        if not self.item:
+            return
+
+        while self.tick():
+            continue
+
+    def tick(self):
+        if not self.item:
+            return False
 
         x = self.item.get_grid_x()
         y = self.item.get_grid_y()
@@ -50,14 +77,20 @@ class Grid:
             for j in range(y, y + h):
                 for i in range(x, x + w):
                     self.cells[j][i] = 1
-            self.item = None
-            return
+                    self.items.append(self.item)
+                    self.item = None
+                    return
 
         # Check for collisions.
         is_empty = True
         for i in range(w):
-            if self.cells[y + h][w + i] == 1:
+            if self.cells[y + h][w + i] > -1:
                 is_empty = False
-                break
+                return False
 
         self.item.inc_grid_y(1)
+
+        return True
+
+    def is_pending(self):
+        return self.item is None

@@ -60,6 +60,9 @@ class MenuState(State):
 
         draw(surface, 'sprites.box', self.pos)
 
+    def on_key(self, key):
+        pass
+
     def spawn(self):
         while True:
             index = random.randint(0, len(self.available)-1)

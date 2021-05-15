@@ -21,3 +21,7 @@ class RunningState(State):
     def render(self, surface):
         super().render(surface)
         self.board.render(surface)
+
+    def on_key(self, key):
+        super().on_key(key)
+        self.board.on_key(key)

@@ -28,6 +28,10 @@ class State(metaclass=ABCMeta):
     def render(self, surface):
         pass
 
+    @abstractmethod
+    def on_key(self, key):
+        pass
+
     def render_ui(self, surface):
         self.component_surface.fill((0, 0, 0, 0))
         for component in self.components:

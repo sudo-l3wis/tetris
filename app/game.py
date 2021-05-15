@@ -30,6 +30,8 @@ class Game:
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
+            if event.type == KEYDOWN:
+                self.manager.on_key(event.key)
 
     def update(self):
         t = pygame.time.get_ticks()

@@ -21,3 +21,6 @@ class StateManager(metaclass=MetaSingleton):
     def render(self, surface):
         self.state.render(surface)
         self.state.render_ui(surface)
+
+    def on_key(self, key):
+        self.state.on_key(key)

@@ -16,10 +16,8 @@ class Board(RenderableEntity):
 
         self.spawner = self.spawn()
         self.available = [i for i in PieceType]
-        self.piece = Piece(next(self.spawner))
-        self.grid.add(self.piece)
+        self.grid.add(Piece(next(self.spawner)))
         self.buffer = [Piece(next(self.spawner)) for i in range(3)]
-
 
         conf = config('sprites.board')
         self.set_surface(asset('sprites').subsurface(tuple(conf.values())))
@@ -29,8 +27,8 @@ class Board(RenderableEntity):
     def update(self, delta):
         super().update(delta)
 
-        if self.piece is None:
-            self.piece = self.buffer.pop()
+        if self.grid.is_pending():
+            self.grid.add(self.buffer.pop())
             self.buffer.append(Piece(next(self.spawner)))
 
         current_time = pygame.time.get_ticks()
@@ -39,9 +37,18 @@ class Board(RenderableEntity):
             self.move_time = current_time
             self.grid.tick()
 
+
     def render(self, surface):
         super().render(surface)
         self.grid.render(surface)
+
+    def on_key(self, key):
+        if key == pygame.K_LEFT:
+            self.grid.move_left()
+        elif key == pygame.K_RIGHT:
+            self.grid.move_right()
+        elif key == pygame.K_DOWN:
+            self.grid.move_down()
 
     def spawn(self):
         while True:
