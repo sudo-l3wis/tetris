@@ -5,6 +5,3 @@ state.menu:
 state.running:
   module: app.state
   class: RunningState
-  methods:
-    - set_board:
-      - entity.board
