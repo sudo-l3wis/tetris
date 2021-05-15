@@ -37,27 +37,6 @@ class Grid:
         self.item.set_grid_width(int(self.item.get_width() / self.block))
         self.item.set_grid_height(int(self.item.get_height() / self.block))
 
-    def move_left(self):
-        if not self.item:
-            return
-
-        if self.item.get_grid_x() > 0:
-            self.item.inc_grid_x(-1)
-
-    def move_right(self):
-        if not self.item:
-            return
-
-        if self.item.get_grid_x() + self.item.get_grid_width() < self.cols:
-            self.item.inc_grid_x(1)
-
-    def move_down(self):
-        if not self.item:
-            return
-
-        while self.tick():
-            continue
-
     def tick(self):
         if not self.item:
             return False
@@ -94,6 +73,9 @@ class Grid:
         h = self.item.get_grid_height()
 
         return x, y, w, h
+
+    def current(self):
+        return self.item
 
     def is_pending(self):
         return self.item is None

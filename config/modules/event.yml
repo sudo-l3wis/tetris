@@ -1,3 +1,15 @@
 event.play:
   module: app.events
   class: PlayEvent
+
+event.grid.left:
+  module: app.events.controls
+  class: MoveLeftEvent
+
+event.grid.right:
+  module: app.events.controls
+  class: MoveRightEvent
+
+event.grid.down:
+  module: app.events.controls
+  class: MoveDownEvent

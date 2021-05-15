@@ -44,11 +44,11 @@ class Board(RenderableEntity):
 
     def on_key(self, key):
         if key == pygame.K_LEFT:
-            self.grid.move_left()
+            emit('controls.left', self.grid)
         elif key == pygame.K_RIGHT:
-            self.grid.move_right()
+            emit('controls.right', self.grid)
         elif key == pygame.K_DOWN:
-            self.grid.move_down()
+            emit('controls.down', self.grid)
 
     def spawn(self):
         while True:

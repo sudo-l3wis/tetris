@@ -1,2 +1,8 @@
 play:
   - event.play
+controls.left:
+  - event.grid.left
+controls.right:
+  - event.grid.right
+controls.down:
+  - event.grid.down
