@@ -45,7 +45,7 @@ class GridItem:
         return x, y, w, h
 
     def is_fill(self, x, y):
-        return self.entity.cells[y][x] == 1
+        return self.entity.cells[y][x] > 0
 
     def is_bottom_fill(self, x):
         return self.is_fill(x, self.entity.rows - 1)

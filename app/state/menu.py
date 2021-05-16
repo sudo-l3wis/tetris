@@ -1,10 +1,9 @@
 import pygame
 import random
 
+from . import State
 from app.types import PieceType
 from app.entity import Piece
-
-from . import State
 from app.types import EntityType
 from app.entity.components import Button
 
@@ -32,7 +31,7 @@ class MenuState(State):
         self.buffer = []
         self.available = [i for i in PieceType]
         self.spawn_time = 0
-        self.spawn_delay = 3
+        self.spawn_delay = 2
         self.spawner = self.spawn()
 
         super().start()
@@ -49,7 +48,7 @@ class MenuState(State):
             self.pieces.append(piece)
 
         for piece in self.pieces:
-            piece.inc_y(86 * delta)
+            piece.inc_y(126 * delta)
             piece.update(delta)
 
     def render(self, surface):

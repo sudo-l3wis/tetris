@@ -59,9 +59,10 @@ class Grid:
 
     def assign_cells(self):
         x, y, w, h = self.item.pos()
-        for j in range(y, y + h):
-            for i in range(x, x + w):
-                self.cells[j][i] = 1
+        for j in range(h):
+            for i in range(w):
+                if self.item.is_fill(i, j):
+                    self.cells[y + j][x + i] = 1
 
         self.items.append(self.item)
         self.item = None
