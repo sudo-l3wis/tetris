@@ -5,15 +5,15 @@ class Piece(MovableEntity):
 
     def __init__(self, type):
         super().__init__()
-        conf = config(type.value)
-        bounds = (conf['x'], conf['y'], conf['width'], conf['height'])
-        block = config('display.grid.block')
+        self.conf = config(type.value)
+        bounds = (self.conf['x'], self.conf['y'], self.conf['width'], self.conf['height'])
         self.set_surface(asset('sprites').subsurface(bounds))
-        self.cols = conf['cols']
-        self.rows = conf['rows']
-        self.set_width(self.cols * block)
-        self.set_height(self.rows * block)
-        self.cells = [[int(i) for i in j.split(',')] for j in conf['cells']]
+        self.cols = 0
+        self.rows = 0
+        self.state = -1
+        self.states = self.conf['cells']
+        self.cells = None
+        self.next_state()
 
     def render_at(self, surface, x, y):
         block = config('display.grid.block')
@@ -24,3 +24,15 @@ class Piece(MovableEntity):
 
     def render(self, surface):
         self.render_at(surface, *self.get_pos())
+
+    def next_state(self):
+        self.state = (self.state + 1) % len(self.states)
+        cells = self.conf['cells'][self.state]
+        self.cells = [[int(i) for i in j.split(',')] for j in cells]
+
+        block = config('display.grid.block')
+
+        self.cols = len(self.cells[0])
+        self.rows = len(self.cells)
+        self.set_width(self.cols * block)
+        self.set_height(self.rows * block)

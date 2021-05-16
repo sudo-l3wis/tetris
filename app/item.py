@@ -53,3 +53,6 @@ class GridItem:
 
         self.entity.set_pos(x, y)
         self.entity.render(surface)
+
+    def rotate(self):
+        self.entity.next_state()

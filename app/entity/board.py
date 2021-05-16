@@ -15,7 +15,7 @@ class Board(RenderableEntity):
         self.grid = grid
         self.buffer = 0
         self.move_time = 0
-        self.move_delay = 1
+        self.move_delay = .5
 
         self.spawner = self.spawn()
         self.available = [i for i in PieceType]
@@ -56,12 +56,14 @@ class Board(RenderableEntity):
         self.next_piece.render(surface)
 
     def on_key(self, key):
-        if key == pygame.K_LEFT:
+        if key == pygame.K_LEFT or key == pygame.K_a:
             emit('controls.left', self.grid)
-        elif key == pygame.K_RIGHT:
+        elif key == pygame.K_RIGHT or key == pygame.K_d:
             emit('controls.right', self.grid)
-        elif key == pygame.K_DOWN:
+        elif key == pygame.K_DOWN or key == pygame.K_s:
             emit('controls.down', self.grid)
+        elif key == pygame.K_r:
+            self.grid.rotate()
 
     def spawn(self):
         while True:

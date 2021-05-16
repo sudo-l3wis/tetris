@@ -77,6 +77,9 @@ class Grid:
 
         self.item = None
 
+    def rotate(self):
+        self.item.rotate()
+
     def current(self):
         return self.item
 
