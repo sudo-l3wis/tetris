@@ -47,11 +47,12 @@ class Grid:
             return False
 
         # Check for collisions.
-        for i in range(w):
-            if self.item.is_bottom_fill(i):
-                if self.cells[y + h][x + i] > -1:
-                    self.assign_cells()
-                    return False
+        for j in range(h):
+            for i in range(w):
+                if self.item.is_fill(i, j):
+                    if self.cells[y + j + 1][x + i] == 1:
+                        self.assign_cells()
+                        return False
 
         self.item.inc_grid_y(1)
 
