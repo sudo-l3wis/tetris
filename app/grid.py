@@ -12,13 +12,19 @@ class Grid:
         self.cols = config('display.grid.cols')
         self.rows = config('display.grid.rows')
         self.block = config('display.grid.block')
-        self.items = []
         self.item = None
 
         width = self.block * self.cols
         height = self.block * self.rows
 
         self.surface = pygame.Surface((width, height), flags=pygame.SRCALPHA)
+
+    def update(self, delta):
+        # Check for complete line.
+        for j in range(len(self.cells)):
+            if None not in self.cells[j]:
+                self.cells.pop(j)
+                self.cells.insert(0, [None for i in range(self.cols)])
 
     def render(self, surface):
         self.surface.fill((0, 0, 0, 0))
@@ -62,12 +68,13 @@ class Grid:
 
     def assign_cells(self):
         x, y, w, h = self.item.pos()
+
+        # Assign cells.
         for j in range(h):
             for i in range(w):
                 if self.item.is_fill(i, j):
                     self.cells[y + j][x + i] = self.item
 
-        self.items.append(self.item)
         self.item = None
 
     def current(self):

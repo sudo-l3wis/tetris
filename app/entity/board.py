@@ -36,6 +36,7 @@ class Board(RenderableEntity):
     def update(self, delta):
         super().update(delta)
 
+        self.grid.update(delta)
         if self.grid.is_pending():
             self.grid.add(self.buffer.pop())
             piece = Piece(next(self.spawner))
