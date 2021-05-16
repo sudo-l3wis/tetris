@@ -67,11 +67,6 @@ class Entity(metaclass=ABCMeta):
     def size(self):
         return self.get_width(), self.get_height()
 
-    def grid_x(self):
-        block = config('display.grid.block')
-        cols = config('display.grid.cols')
-        (cols * block / 2) - int(self.get_width() / block / 2) * block
-
     def intersects(self, pos):
         px, py = pos
         x, y = self.pos()

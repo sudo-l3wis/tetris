@@ -15,10 +15,12 @@ class Piece(MovableEntity):
         self.set_height(self.rows * block)
         self.cells = [[int(i) for i in j.split(',')] for j in conf['cells']]
 
-    def render(self, surface):
+    def render_at(self, surface, x, y):
         block = config('display.grid.block')
-        x, y = self.get_pos()
         for j in range(self.rows):
             for i in range(self.cols):
                 if self.cells[j][i] == 1:
                     surface.blit(self.get_surface(), (x + i * block, y + j * block))
+
+    def render(self, surface):
+        self.render_at(surface, *self.get_pos())
