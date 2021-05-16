@@ -8,7 +8,7 @@ class Grid:
     def __init__(self, offset_x, offset_y):
         self.offset_x = offset_x
         self.offset_y = offset_y
-        self.cells = [[-1 for i in range(10)] for j in range(13)]
+        self.cells = [[None for i in range(10)] for j in range(13)]
         self.cols = config('display.grid.cols')
         self.rows = config('display.grid.rows')
         self.block = config('display.grid.block')
@@ -26,8 +26,10 @@ class Grid:
         if self.item is not None:
             self.item.render(self.surface)
 
-        for item in self.items:
-            item.render(self.surface)
+        for j in range(len(self.cells)):
+            for i in range(len(self.cells[j])):
+                if self.cells[j][i] is not None:
+                    self.surface.blit(self.cells[j][i].entity.get_surface(), (i * self.block, j * self.block))
 
         surface.blit(self.surface, (self.offset_x, self.offset_y))
 
@@ -50,7 +52,7 @@ class Grid:
         for j in range(h):
             for i in range(w):
                 if self.item.is_fill(i, j):
-                    if self.cells[y + j + 1][x + i] == 1:
+                    if self.cells[y + j + 1][x + i] is not None:
                         self.assign_cells()
                         return False
 
@@ -63,7 +65,7 @@ class Grid:
         for j in range(h):
             for i in range(w):
                 if self.item.is_fill(i, j):
-                    self.cells[y + j][x + i] = 1
+                    self.cells[y + j][x + i] = self.item
 
         self.items.append(self.item)
         self.item = None
