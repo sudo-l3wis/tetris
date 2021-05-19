@@ -54,7 +54,7 @@ class Grid:
             self.assign_cells()
             return False
 
-        # Check for collisions.
+        # Check for veritical collisions.
         for j in range(h):
             for i in range(w):
                 if self.item.is_fill(i, j):
