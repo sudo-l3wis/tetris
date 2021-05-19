@@ -19,6 +19,10 @@ class Grid:
 
         self.surface = pygame.Surface((width, height), flags=pygame.SRCALPHA)
 
+    def reset(self):
+        self.cells = [[None for i in range(10)] for j in range(13)]
+        self.item = None
+
     def update(self, delta):
         # Check for complete line.
         for j in range(len(self.cells)):
@@ -35,7 +39,9 @@ class Grid:
         for j in range(len(self.cells)):
             for i in range(len(self.cells[j])):
                 if self.cells[j][i] is not None:
-                    self.surface.blit(self.cells[j][i].entity.get_surface(), (i * self.block, j * self.block))
+                    _surface = self.cells[j][i].entity.get_surface()
+                    pos = (i * self.block, j * self.block)
+                    self.surface.blit(_surface, pos)
 
         surface.blit(self.surface, (self.offset_x, self.offset_y))
 
@@ -48,6 +54,14 @@ class Grid:
             return False
 
         x, y, w, h = self.item.pos()
+
+        # Check for game over.
+        for j in range(h):
+            for i in range(w):
+                if self.item.is_fill(i, j):
+                    if self.cells[y+j][x+i] is not None:
+                        emit('game.over')
+                        return False
 
         # Check for bottom.
         if y + h >= self.rows:
@@ -73,7 +87,7 @@ class Grid:
         for j in range(h):
             for i in range(w):
                 if self.item.is_fill(i, j):
-                    self.cells[y + j][x + i] = self.item
+                    self.cells[y+j][x+i] = self.item
 
         self.item = None
 

@@ -11,15 +11,16 @@ class Board(RenderableEntity):
 
     def __init__(self, grid):
         super().__init__()
-
         self.grid = grid
         self.buffer = 0
         self.move_time = 0
         self.move_delay = .5
-
         self.spawner = self.spawn()
         self.available = [i for i in PieceType]
+        self.reset()
 
+    def reset(self):
+        self.grid.reset()
         piece = Piece(next(self.spawner))
         self.next_piece = NextPiece()
         self.next_piece.set(piece)

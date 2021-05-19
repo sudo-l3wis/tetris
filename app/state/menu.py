@@ -62,6 +62,9 @@ class MenuState(State):
     def on_key(self, key):
         pass
 
+    def restart(self):
+        pass
+
     def spawn(self):
         while True:
             index = random.randint(0, len(self.available)-1)

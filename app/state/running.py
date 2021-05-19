@@ -25,3 +25,6 @@ class RunningState(State):
     def on_key(self, key):
         super().on_key(key)
         self.board.on_key(key)
+
+    def restart(self):
+        self.board.reset()

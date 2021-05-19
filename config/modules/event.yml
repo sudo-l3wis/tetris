@@ -13,3 +13,7 @@ event.grid.right:
 event.grid.down:
   module: app.events.controls
   class: MoveDownEvent
+
+event.game.over:
+  module: app.events
+  class: GameOver

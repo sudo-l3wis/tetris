@@ -32,6 +32,10 @@ class State(metaclass=ABCMeta):
     def on_key(self, key):
         pass
 
+    @abstractmethod    
+    def restart(self):
+        pass
+
     def render_ui(self, surface):
         self.component_surface.fill((0, 0, 0, 0))
         for component in self.components:

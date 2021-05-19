@@ -6,3 +6,5 @@ controls.right:
   - event.grid.right
 controls.down:
   - event.grid.down
+game.over:
+  - event.game.over

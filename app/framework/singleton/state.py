@@ -11,6 +11,9 @@ class StateManager(metaclass=MetaSingleton):
     def start(self):
         self.state.start()
 
+    def restart(self):
+        self.state.restart()
+
     def change(self, state):
         self.state = self.states[state.value]
         self.state.start()
