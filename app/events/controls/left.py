@@ -4,15 +4,15 @@ class MoveLeftEvent:
         item = grid.current()
 
         if item is not None:
-            x = item.get_grid_x()
-            y = item.get_grid_y()
-            h = item.get_grid_height()
+            x, y, w, h = item.pos()
 
-            move = False
-            if x > 0:
-                move = True
-                for i in range(h):
-                    if grid.cells[h][-x] == 0:
+            if x == 0:
+                return next(_next)
+
+            move = True
+            for j in range(h):
+                for i in range(w):
+                    if item.is_fill(i, j) and grid.cells[y+j][x+i-1] is not None:
                         move = False
 
         if move:

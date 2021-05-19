@@ -58,7 +58,7 @@ class Grid:
         for j in range(h):
             for i in range(w):
                 if self.item.is_fill(i, j):
-                    if self.cells[y + j + 1][x + i] is not None:
+                    if self.cells[y+j+1][x+i] is not None:
                         self.assign_cells()
                         return False
 
