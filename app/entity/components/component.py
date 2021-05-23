@@ -6,10 +6,6 @@ from app.entity import RenderableEntity
 
 class Component(RenderableEntity):
 
-    def __init__(self, type):
-        super().__init__()
-        self.type = type
-
     def update(self, delta):
         super().update(delta)
 

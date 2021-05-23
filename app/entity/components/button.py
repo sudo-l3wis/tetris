@@ -1,12 +1,11 @@
 from . import Component
-from app.types import ComponentType
 from app.types import ButtonState
 
 
 class Button(Component):
 
     def __init__(self):
-        super().__init__(ComponentType.UI)
+        super().__init__()
         self.handler = None
         self.state = None
         self.is_pressed = False

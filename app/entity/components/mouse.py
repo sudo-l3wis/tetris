@@ -1,11 +1,10 @@
 from . import Component
-from app.types import ComponentType
 
 
 class Mouse(Component):
 
     def __init__(self):
-        super().__init__(ComponentType.UI)
+        super().__init__()
         bounds = tuple(config('sprites.mouse').values())
         self.set_surface(asset('sprites').subsurface(bounds))
         self.state = None

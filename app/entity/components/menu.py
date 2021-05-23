@@ -4,7 +4,7 @@ from . import Component
 class MainMenu(Component):
 
     def __init__(self):
-        super().__init__(ComponentType.UI)
+        super().__init__()
         bounds = tuple(config('sprites.box').values())
         self.set_surface(asset('sprites').subsurface(bounds))
         self.state = None
