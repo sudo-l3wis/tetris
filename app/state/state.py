@@ -3,12 +3,24 @@ import pygame
 from abc import ABCMeta, abstractmethod
 from app.entity.components import Mouse
 
+
 class State(metaclass=ABCMeta):
 
     def __init__(self):
-        self.size = (config('display.width'), config('display.height'))
+        w = config('display.width')
+        h = config('display.height')
+        conf = config('sprites.pieces.B')
+        block = config('display.grid.block')
+
+        self.size = (w, h)
         self.component_surface = pygame.Surface(self.size, flags=pygame.SRCALPHA)
         self.components = [Mouse()]
+
+        self.backdrop = pygame.Surface(self.size)
+        tile = asset('sprites').subsurface(tuple(conf.values()))
+        for j in range(int(h / block)):
+            for i in range(int(w / block)):
+                self.backdrop.blit(tile, (i * block, j * block))
 
     def add_component(self, component):
         self.components.insert(0, component)
@@ -23,16 +35,14 @@ class State(metaclass=ABCMeta):
         for component in self.components:
             component.update(delta)
 
-
-    @abstractmethod
     def render(self, surface):
-        pass
+        surface.blit(self.backdrop, (0,0))
 
     @abstractmethod
     def on_key(self, key):
         pass
 
-    @abstractmethod    
+    @abstractmethod
     def restart(self):
         pass
 

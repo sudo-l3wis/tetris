@@ -131,6 +131,11 @@ pieces:
         - 0,1
         - 1,1
         - 1,0
+  B:
+    x: 758
+    y: 145
+    width: 62
+    height: 62
 
 button:
   x: 692
