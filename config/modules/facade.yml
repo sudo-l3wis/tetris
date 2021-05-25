@@ -25,3 +25,7 @@ facade.asset:
 facade.draw:
   module: app.framework.facade
   class: DrawFacade
+
+facade.surface:
+  module: app.framework.facade
+  class: SurfaceFacade

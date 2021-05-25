@@ -156,10 +156,10 @@ button_pressed:
   height: 104
 
 icon_play:
-  x: 908
-  y: 761
-  width: 23
-  height: 38
+  x: 715
+  y: 641
+  width: 60
+  height: 70
 
 icon_exit:
   x: 697
