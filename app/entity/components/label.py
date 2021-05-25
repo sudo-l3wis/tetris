@@ -10,20 +10,18 @@ class Label(Component):
         self.set_text(text)
 
     def set_text(self, text):
-        self.text = text
-        w = sum([config('sprites.text.{}'.format(i.lower()))['width'] for i in text]) + 10 * (len(text) - 1)
-        h = max([config('sprites.text.{}'.format(i.lower()))['height'] for i in text])
+        w = sum([config('sprites.text.{}'.format(i))['width'] for i in text]) + 2 * (len(text) - 1)
+        h = max([config('sprites.text.{}'.format(i))['height'] for i in text])
         self.set_width(w)
         self.set_height(h)
         txt_surface = pygame.Surface((w, h), flags=pygame.SRCALPHA)
 
         x, y = 0, 0
         for character in text:
-            print('sprites.text.{}'.format(character.lower()))
-            _surface = surface('text.{}'.format(character.lower()))
+            _surface = surface('text.{}'.format(character))
             txt_surface.blit(_surface, (x, y))
             w, h = _surface.get_size()
-            x += w + 10
+            x += w + 2
 
         self.set_surface(txt_surface)
 

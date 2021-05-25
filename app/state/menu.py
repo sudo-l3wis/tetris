@@ -28,7 +28,7 @@ class MenuState(State):
         btn_start.handle(lambda : emit('play'))
         self.add_component(btn_start)
 
-        lbl_title = Label("Tetris")
+        lbl_title = Label("tetris")
         lw = lbl_title.get_width()
         lbl_title.set_pos((w - lw) / 2, 100)
         self.add_component(lbl_title)
