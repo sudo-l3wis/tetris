@@ -18,9 +18,11 @@ class State(metaclass=ABCMeta):
 
         self.backdrop = pygame.Surface(self.size)
         tile = asset('sprites').subsurface(tuple(conf.values()))
-        for j in range(int(h / block)):
-            for i in range(int(w / block)):
+        for j in range(int(h / block + 1)):
+            for i in range(int(w / block + 1)):
                 self.backdrop.blit(tile, (i * block, j * block))
+
+        self.backdrop.set_alpha(60)
 
     def add_component(self, component):
         self.components.insert(0, component)
