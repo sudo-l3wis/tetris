@@ -174,7 +174,188 @@ cursor:
   height: 41
 
 text:
-  x: 8
-  y: 878
-  width: 1175
-  height: 160
+  a:
+    x: 17
+    y: 881
+    width: 55
+    height: 66
+  b:
+    x: 72
+    y: 879
+    width: 44
+    height: 69
+  c:
+    x: 119
+    y: 885
+    width: 42
+    height: 61
+  d:
+    x: 163
+    y: 883
+    width: 47
+    height: 63
+  e:
+    x: 210
+    y: 884
+    width: 53
+    height: 66
+  f:
+    x: 262
+    y: 887
+    width: 51
+    height: 63
+  g:
+    x: 315
+    y: 885
+    width: 54
+    height: 62
+  h:
+    x: 372
+    y: 889
+    width: 51
+    height: 58
+  i:
+    x: 424
+    y: 885
+    width: 28
+    height: 62
+  j:
+    x: 450
+    y: 886
+    width: 41
+    height: 62
+  k:
+    x: 491
+    y: 886
+    width: 47
+    height: 60
+  l:
+    x: 536
+    y: 888
+    width: 45
+    height: 57
+  m:
+    x: 580
+    y: 888
+    width: 55
+    height: 58
+  n:
+    x: 634
+    y: 884
+    width: 50
+    height: 62
+  o:
+    x: 684
+    y: 882
+    width: 56
+    height: 64
+  p:
+    x: 740
+    y: 888
+    width: 39
+    height: 57
+  q:
+    x: 780
+    y: 883
+    width: 66
+    height: 65
+  r:
+    x: 846
+    y: 888
+    width: 43
+    height: 61
+  s:
+    x: 891
+    y: 885
+    width: 43
+    height: 60
+  t:
+    x: 934
+    y: 883
+    width: 56
+    height: 63
+  u:
+    x: 988
+    y: 885
+    width: 54
+    height: 60
+  v:
+    x: 1043
+    y: 885
+    width: 54
+    height: 61
+  w:
+    x: 1098
+    y: 886
+    width: 77
+    height: 61
+  x:
+    x: 1098
+    y: 886
+    width: 77
+    height: 61
+  y:
+    x: 1098
+    y: 886
+    width: 77
+    height: 61
+  z:
+    x: 1098
+    y: 886
+    width: 77
+    height: 61
+  0:
+    x: 10
+    y: 967
+    width: 59
+    height: 66
+  1:
+    x: 70
+    y: 966
+    width: 28
+    height: 64
+  2:
+    x: 99
+    y: 970
+    width: 43
+    height: 60
+  3:
+    x: 143
+    y: 968
+    width: 45
+    height: 65
+  4:
+    x: 164
+    y: 998
+    width: 43
+    height: 60
+  5:
+    x: 189
+    y: 968
+    width: 45
+    height: 65
+  6:
+    x: 299
+    y: 968
+    width: 43
+    height: 63
+  7:
+    x: 333
+    y: 968
+    width: 46
+    height: 67
+  8:
+    x: 378
+    y: 970
+    width: 45
+    height: 62
+  9:
+    x: 422
+    y: 970
+    width: 44
+    height: 63
+  colon:
+    x: 461
+    y: 971
+    width: 24
+    height: 55

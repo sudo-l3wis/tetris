@@ -6,6 +6,7 @@ from app.types import PieceType
 from app.entity import Piece
 from app.types import EntityType
 from app.entity.components import Button
+from app.entity.components import Label
 
 
 class MenuState(State):
@@ -26,6 +27,11 @@ class MenuState(State):
         btn_start.set_pos((w - bw) / 2, (h - bh) / 2)
         btn_start.handle(lambda : emit('play'))
         self.add_component(btn_start)
+
+        lbl_title = Label("Tetris")
+        lw = lbl_title.get_width()
+        lbl_title.set_pos((w - lw) / 2, 100)
+        self.add_component(lbl_title)
 
         self.pieces = []
         self.buffer = []
