@@ -9,3 +9,7 @@ config.sprites:
 config.events:
   module: app.framework.config
   class: EventConfig
+
+config.score:
+  module: app.framework.config
+  class: ScoreConfig

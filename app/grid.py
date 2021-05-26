@@ -25,10 +25,15 @@ class Grid:
 
     def update(self, delta):
         # Check for complete line.
+        lines = 0
         for j in range(len(self.cells)):
             if None not in self.cells[j]:
                 self.cells.pop(j)
                 self.cells.insert(0, [None for i in range(self.cols)])
+                lines += 1
+
+        if lines > 0:
+            emit('score.line', lines)
 
     def render(self, surface):
         self.surface.fill((0, 0, 0, 0))
@@ -68,7 +73,7 @@ class Grid:
             self.assign_cells()
             return False
 
-        # Check for veritical collisions.
+        # Check for vertical collisions.
         for j in range(h):
             for i in range(w):
                 if self.item.is_fill(i, j):

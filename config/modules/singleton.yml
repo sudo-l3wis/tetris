@@ -23,3 +23,7 @@ singleton.state:
   dependencies:
     - state.menu
     - state.running
+
+singleton.score:
+  module: app.framework.singleton
+  class: Score

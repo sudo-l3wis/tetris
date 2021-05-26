@@ -5,6 +5,7 @@ provider.config:
     - config.display
     - config.sprites
     - config.events
+    - config.score
 
 provider.decorator:
   module: app.framework.provider

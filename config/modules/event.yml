@@ -14,6 +14,10 @@ event.grid.down:
   module: app.events.controls
   class: MoveDownEvent
 
+event.score.line:
+  module: app.events.score
+  class: LineComplete
+
 event.game.over:
   module: app.events
   class: GameOver
