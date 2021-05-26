@@ -1,5 +1,5 @@
 # Tetris
-![cover](https://github.com/sudo-l3wis/tetris/blob/main/assets/cover.png)
+![github](https://github.com/sudo-l3wis/tetris/blob/main/assets/github.png)
 
 ### Development
 ```bash
